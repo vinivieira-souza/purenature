@@ -1,26 +1,99 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #fffddf;
+  --color-foreground: #263e00;
+  --color-surface: #eef295;
+  --color-accent: #a6db1e;
+  --color-primary: #4e7400;
+  --color-primary-light: #77a800;
+
+  --font-heading: var(--font-borel), cursive;
+  --font-body: var(--font-rem), sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  color-scheme: light;
+  background: #fffddf;
+  color: #263e00;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100%;
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-rem), sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.footer-icon-quad {
+  width: min(46.7vw, 772.43px);
+  aspect-ratio: 458 / 640;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%) rotate(30deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* Depoimentos: espaçamento e dimensões da faixa animada pelo GSAP. */
+.testimonials-viewport {
+  overflow: hidden;
+  padding-left: 6.25%;
+}
+
+.testimonials-track {
+  will-change: transform;
+}
+
+.testimonials-item {
+  width: 608px;
+  padding-right: 48px;
+}
+
+@media (max-width: 1023px) {
+  .footer-icon-quad {
+    width: min(160dvw, 720px);
+    right: auto;
+    left: 50%;
+    top: 0%;
+    transform: translateX(-50%) rotate(30deg);
+  }
+
+  .testimonials-viewport {
+    padding-left: 16px;
+  }
+
+  .testimonials-item {
+    width: calc(100vw - 16px);
+    padding-right: 16px;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonials-viewport {
+    overflow-x: auto;
+  }
+
+  .testimonials-track {
+    transform: none;
+  }
 }

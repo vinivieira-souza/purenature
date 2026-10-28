@@ -2,6 +2,12 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+Install the dependencies first (this recreates `node_modules` from `bun.lock`):
+
+```bash
+bun install
+```
+
 First, run the development server:
 
 ```bash
